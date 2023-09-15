@@ -144,6 +144,7 @@
 ## ROS2 topics 
 ### What is a topic
 A topic is a communication channel for nodes to publish (send) and subscribe (receive) information from. This is one of the ways to move information between nodes. You can have many publishers and many subscribers to topics
+
 <br>
 
 ### demo_nodes_cpp
@@ -158,7 +159,7 @@ A topic is a communication channel for nodes to publish (send) and subscribe (re
     ros2 run demo_node_cpp listener
     ```
     You should notice the number attached to Hello World here is the same as from the `talker`
-1. Open a new terminal and enter the command `rqt_graph`
+1. Open a new terminal and enter the command `rqt_graph`. Then click on the the Graphical Tools icon on the toolbar to open the display
 2. This is an example of publisher and subscriber communication, the nodes communicate using topics, in this example we are using the topic `chatter`. You can see the available topics with 
     ```sh
     ros2 topic list
