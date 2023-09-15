@@ -17,15 +17,16 @@
 
 
 ## Creating a package 
-1. Navigate to the `src` directory with `cd ros2_ws/src` 
+1. Navigate to the `src` directory with `cd ros2_ws/src/` 
 2. Create a package with
    ```sh
-   ros2 pkg create hello--build-type ament_python --dependencies rclpy
+   ros2 pkg create hello --build-type ament_python --dependencies rclpy
    # Where hello is the name of your package
    # Add dependencies (other packages your package relies on) after --dependencies
    ```
    A package is a subsystem to group together related executables. Packages are the most atomic unit of build and the unit of release
-1. Open the new package in VS code called `hello`. There will be several pre-made folders and files. One has the same name as the package name, this is where we create the nodes
+1. Build the package with `colcon build`
+3. Open the new package in VS code called `hello`. There will be several pre-made folders and files. One has the same name as the package name, this is where we create the nodes
    
    Files you will see:
      - **pkg.xml**
@@ -42,15 +43,13 @@
         - Directory with the same name as your package (`hello`)
         - This is where you create nodes 
         - There will be an `__init__.py` file by default 
-2. Go back to the workspace with `cd ..`
-3. Build the package with `colcon build`
 
 <br>
 
 ## Hello world
-1. Navigate to the package with `cd src/hello/hello`
+1. Navigate to the package with `cd hello/hello/`
 2. Create a new python file with `touch hello.py` to create a node
-3. Make it executable with `chmod +x controller.py`
+3. Make it executable with `chmod +x hello.py`
 4. Open `hello.py` in VS Code
 5. Add a shebang at the top of the file to make it executable 
     ```py
@@ -83,7 +82,7 @@
     ```
 10. Go back to `main()` and create an instance of the node
      ```py
-     node = Tiny_Hawk_Controller()
+     node = Hello()
      ```
 11. Go back to the constructor and use the logger to output "Hello world". This is basically a print statement
     ```py
@@ -98,15 +97,48 @@
     # executable = package.file_name:function_to_run
     "hello = hello.hello:main"
     ```
-14. We can skip having to re-build the script after making changing the by entering the following in the terminal
+14. Navigate to the workspace directory. We can skip having to re-build the script after making changing the by entering the following in the terminal
     ```sh
+    cd ../../..
     colcon build --symlink-install
     source ~/.bashrc
 15. The previous command will set you back to the home directory, so we need to navigate back to the workspace to run the executable. Be sure to always run from the workspace
     ```sh
-    cd ros2_ws
+    cd ros2_ws/
     ros2 run hello hello
     ```
+16. Use `CTRL-C` to kill the node
+17. A very common task in ROS2 is to use a timer and a callback. This enables you to call a function every n seconds. We will be printing "Hello World" every second
+    1.  First create a timer as another function in the class 
+        ```py 
+        def timer_callback(self):
+          self.get_logger().info("Hello world")
+        ```
+    2. This will replace the similar statement in the `__init__()` function, so you can remove it
+    3. Within the `__init_()` function create a timer that calls the `timer_callback()` function such that it repeats every second
+        ```py 
+        # Calls timer_callback every 1.0 seconds
+        self.create_timer(1.0, self.timer_callback)
+        ```
+    4. Add a class timer variable to keep track of the number of seconds passed 
+        ```py 
+        self._counter = 0
+        ```
+    5. We can output the `_counter`'s value in our callback function by updating the logger to output an f string
+        ```py
+        self.get_logger().info(f"Hello world {self._counter}")
+        ```
+    6. Finally ensure the `_counter` updates by incrementing it in the callback
+        ```
+        self._counter += 1
+        ```
+18. Run your node again to view the changes
+    ```sh
+    ros2 run hello hello
+    ```
+19. Congratulations, you have created your first node in ROS2
+
+
 <br>
 
 ## ROS2 topics 
