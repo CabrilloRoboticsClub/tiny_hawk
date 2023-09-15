@@ -171,7 +171,7 @@ A topic is a communication channel for nodes to publish (send) and subscribe (re
    <img width="650" alt="listener" src="https://github.com/CabrilloRoboticsClub/tiny_hawk/assets/96219204/f3d3a0c9-2528-41af-af42-02a98b905b20">
 
 1. Open a new terminal and enter the command `rqt_graph`. Then click on the the Graphical Tools icon on the toolbar to open the display
-2. 
+   
     <img width="650" alt="rqt_graph" src="https://github.com/CabrilloRoboticsClub/tiny_hawk/assets/96219204/4d61865f-69f2-4d7b-8121-c2b9ddf807be">
 
 3. This is an example of publisher and subscriber communication, the nodes communicate using topics, in this example we are using the topic `chatter`. You can see the available topics with 
