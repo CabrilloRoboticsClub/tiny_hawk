@@ -1,24 +1,18 @@
-<h1 align="center">F23_CS11_SI</h1>
-<h3 align="center">Fall 2023 CS-11 Supplemental Instruction</h3>
+<h1 align="center">Git Overview</h1>
+<h3 align="center">CRC Software Team</h3>
 
 <br>
   <p align="center">
     GitHub Repo
     <br/>
-    <a href="https://github.com/steph1111/F23_CS11_SI"><strong>F23_CS11_SI »</strong></a>
+    <a href="https://github.com/CabrilloRoboticsClub/tiny_hawk"><strong>Tiny Hawk »</strong></a>
     <br/><br/>
-    <a href="https://discord.gg/EXZMtyWd3f">Discord</a>
-    ·
-    <a href="https://cabrillo.instructure.com/enroll/HPCCDY">Canvas</a>
-    ·
-    <a href="https://replit.com/teams/join/ebncukmleqfedfzbdabounplgiwanfno-F23CS11SI">Replit</a>
   </p>
 <br>
 
 <details>
 <summary>Table of contents</summary>
     <ul>
-        <li><a href="#weekly-directories">Weekly directories</a>
         <li><a href="#getting-started">Getting started</a>
             <ul>
                 <li><a href="#0%EF%B8%8F⃣-installing-git-cygwin"> Installing git (Cygwin)</a>
@@ -41,15 +35,6 @@
 </details>
 
 <br>
-
-# Weekly directories
-Quick links to each weekly directory:
-- [Week 2](https://github.com/steph1111/F23_CS11_SI/tree/main/week_2)
-- [Week 3](https://github.com/steph1111/F23_CS11_SI/tree/main/week_3)
-  
-Each week we will have a new directory of practice programs
-
-<br> 
 
 # Getting started
 ## 0️⃣ Installing git (Cygwin)
@@ -127,8 +112,8 @@ GitHub is the free web based platform we and many other software engineers use t
     ```sh
     ssh-keygen
     ```
-    - When it asks for the location to put the file hit enter 
-    - Also just hit enter when it asks for the password, unless you can remember it
+    - When it asks for the file location, press enter to save it to the default location 
+    - Hit enter when it asks for the password to not save a password or enter one if you think you can remember it
 2. Copy the generated ssh key
     ```sh
     cat ~/.ssh/id_rsa.pub
@@ -174,7 +159,7 @@ GitHub is the free web based platform we and many other software engineers use t
     ```
     Here is an example of how I would clone my repo (your link is different)
     ```sh
-    git clone git@github.com:steph1111/F23_CS11_SI.git
+    git clone git@github.com:CabrilloRoboticsClub/tiny_hawk.git
     ```
 4. To confirm the clone was successful list your files with `ls`. You should see the name of the cloned repo in your current directory
 
@@ -183,13 +168,12 @@ GitHub is the free web based platform we and many other software engineers use t
 # Maintaining your repo
 
 ## 0️⃣ Sync and pull the changes
-I will be updating my upstream version of your repo before SI sessions to add new content. In order to get the new content into your forked repo you must sync and pull the changes. *Every time* you want to work on your repo I recommend heading to your forked repo and seeing if there are upstream changes to be synced and pulled
 1. Open your forked repo in GitHub. If there are no changes you should see a message that looks like the following stating this branch is up to date. If this is the case it means I have not made changes and you can ignore the following steps.
     ![up_to_date](https://github.com/steph1111/F23_CS11_SI/assets/96219204/a67537ba-91e8-4ec6-907d-8181b769b281)
 
 2. If there are upstream changes to merge there should be a message on this page similar to the following:
     ![x_commits_behind](https://github.com/steph1111/F23_CS11_SI/assets/96219204/786f9c39-25de-4fd2-8b2b-2012b332646d)
-   This means I have main changes to the upstream repo that need to be synced to your fork
+   This means there are changes to the upstream repo that need to be synced to your fork
 3. Click on the button titled 🔄 `Sync fork`, you should see a window stating the code is out of date. Click <img width="80" alt="update branch" src="https://github.com/steph1111/F23_CS11_SI/assets/96219204/3330cd21-db4f-4ed4-9803-36796deea681">
 
 4. Next navigate to your fork on your system 
