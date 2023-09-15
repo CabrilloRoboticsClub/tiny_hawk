@@ -1,5 +1,5 @@
 <h1 align="center">Hello World from ROS2</h1>
-<h3 align="center">CRC</h3>
+<h3 align="center">CRC Software Team</h3>
 
 <br>
   <p align="center">
@@ -27,8 +27,10 @@
    A package is a subsystem to group together related executables. Packages are the most atomic unit of build and the unit of release
 1. Build the package with `colcon build`
 3. Open the new package in VS code called `hello`. There will be several pre-made folders and files. One has the same name as the package name, this is where we create the nodes
-   
-   Files you will see:
+
+   <img width="208" alt="files" src="https://github.com/CabrilloRoboticsClub/tiny_hawk/assets/96219204/8d54d9b8-0604-4795-b1f0-e11b7ce3c44c">
+
+   Notable files and directories:
      - **pkg.xml**
         - The name of the package
         - The license 
@@ -136,7 +138,10 @@
     ```sh
     ros2 run hello hello
     ```
+    <img width="650" alt="hello" src="https://github.com/CabrilloRoboticsClub/tiny_hawk/assets/96219204/f83276d1-9ac9-463a-a004-f5ec4d49a26b">
+
 19. Congratulations, you have created your first node in ROS2
+20. The full complete solution is avaliable [here](https://github.com/CabrilloRoboticsClub/tiny_hawk/blob/main/hello/hello.py)
 
 
 <br>
@@ -153,23 +158,32 @@ A topic is a communication channel for nodes to publish (send) and subscribe (re
     ```sh
     ros2 run demo_nodes_cpp talker
     ```
-    You should see Hello World and a number 
+    You should see Hello World and a number
+   
+    <img width="650" alt="talker" src="https://github.com/CabrilloRoboticsClub/tiny_hawk/assets/96219204/8cfc1708-dc80-4939-8c1d-003770b20858">
+
 1. Now start a new terminal and start the `listener`
     ```sh
     ros2 run demo_node_cpp listener
     ```
     You should notice the number attached to Hello World here is the same as from the `talker`
+   
+   <img width="650" alt="listener" src="https://github.com/CabrilloRoboticsClub/tiny_hawk/assets/96219204/f3d3a0c9-2528-41af-af42-02a98b905b20">
+
 1. Open a new terminal and enter the command `rqt_graph`. Then click on the the Graphical Tools icon on the toolbar to open the display
-2. This is an example of publisher and subscriber communication, the nodes communicate using topics, in this example we are using the topic `chatter`. You can see the available topics with 
+2. 
+    <img width="650" alt="rqt_graph" src="https://github.com/CabrilloRoboticsClub/tiny_hawk/assets/96219204/4d61865f-69f2-4d7b-8121-c2b9ddf807be">
+
+3. This is an example of publisher and subscriber communication, the nodes communicate using topics, in this example we are using the topic `chatter`. You can see the available topics with 
     ```sh
     ros2 topic list
     ```
-3. To see more information the topic including how many nodes are publishing/subscribing to it and the type of data it uses, use the command
+4. To see more information the topic including how many nodes are publishing/subscribing to it and the type of data it uses, use the command
     ```sh 
     # ros2 topic info /topic_name
     ros2 topic info /chatter # Where chatter is the name of the topic
     ```
-4. To read what is being sent over the topic use 
+5. To read what is being sent over the topic use 
    ```sh 
    # ros2 topic echo /topic_name
    ros2 topic echo /chatter # Where chatter is the name of the topic
