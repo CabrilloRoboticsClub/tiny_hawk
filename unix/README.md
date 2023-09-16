@@ -30,7 +30,7 @@
 
 ## Recording 
 *Click on the image to open the [video](https://www.youtube.com/watch?v=hzFErKeImTs)*
-[![Watch the video](https://i.imgur.com/Pi2UlNw.png)](https://youtu.be/hzFErKeImTs "Tiny Hawk: Unix commands")
+[![Watch the video](https://i.imgur.com/LyDomxH.png)](https://youtu.be/hzFErKeImTs "Tiny Hawk: Unix commands")
 
 <br>
 
