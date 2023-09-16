@@ -27,10 +27,13 @@
 
 <br>
 
+
 ## Recording 
+[![Watch the video](https://github.com/CabrilloRoboticsClub/tiny_hawk/assets/96219204/2d49e52f-cdb0-4141-af28-1f8d60908796)](https://youtu.be/hzFErKeImTs)
 
 <br>
 
 ## Slides
 <p><iframe title="embedded content" src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFumdVmae4&#x2F;view?embed" width="560" height="315" allowfullscreen="allowfullscreen" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe></p>
+
 
