@@ -28,7 +28,7 @@
 1. Build the package with `colcon build`
 3. Open the new package in VS code called `hello`. There will be several pre-made folders and files. One has the same name as the package name, this is where we create the nodes
 
-   <img width="208" alt="files" src="https://github.com/CabrilloRoboticsClub/tiny_hawk/assets/96219204/8d54d9b8-0604-4795-b1f0-e11b7ce3c44c">
+   <img width="208" alt="files" src="https://i.imgur.com/iXtHA1G.png">
 
    Notable files and directories:
      - **pkg.xml**
@@ -138,7 +138,7 @@
     ```sh
     ros2 run hello hello
     ```
-    <img width="650" alt="hello" src="https://github.com/CabrilloRoboticsClub/tiny_hawk/assets/96219204/f83276d1-9ac9-463a-a004-f5ec4d49a26b">
+    <img width="650" alt="hello" src="https://i.imgur.com/pO6prot.png">
 
 19. Congratulations, you have created your first node in ROS2
 20. The full complete solution is avaliable [here](https://github.com/CabrilloRoboticsClub/tiny_hawk/blob/main/hello/hello.py)
@@ -160,7 +160,7 @@ A topic is a communication channel for nodes to publish (send) and subscribe (re
     ```
     You should see Hello World and a number
    
-    <img width="650" alt="talker" src="https://github.com/CabrilloRoboticsClub/tiny_hawk/assets/96219204/8cfc1708-dc80-4939-8c1d-003770b20858">
+    <img width="650" alt="talker" src="https://i.imgur.com/QeAWupG.png">
 
 1. Now start a new terminal and start the `listener`
     ```sh
@@ -168,11 +168,11 @@ A topic is a communication channel for nodes to publish (send) and subscribe (re
     ```
     You should notice the number attached to Hello World here is the same as from the `talker`
    
-   <img width="650" alt="listener" src="https://github.com/CabrilloRoboticsClub/tiny_hawk/assets/96219204/f3d3a0c9-2528-41af-af42-02a98b905b20">
+   <img width="650" alt="listener" src="https://i.imgur.com/6Hw8V3q.png">
 
 1. Open a new terminal and enter the command `rqt_graph`. Then click on the the Graphical Tools icon on the toolbar to open the display
    
-    <img width="650" alt="rqt_graph" src="https://github.com/CabrilloRoboticsClub/tiny_hawk/assets/96219204/4d61865f-69f2-4d7b-8121-c2b9ddf807be">
+    <img width="650" alt="rqt_graph" src="https://i.imgur.com/iPSwWPG.png">
 
 3. This is an example of publisher and subscriber communication, the nodes communicate using topics, in this example we are using the topic `chatter`. You can see the available topics with 
     ```sh
