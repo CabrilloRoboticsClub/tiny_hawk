@@ -35,6 +35,6 @@
 <br>
 
 ## Slides
-
-
+*Click on the image to open the [slides](https://www.canva.com/design/DAFumdVmae4/view)*
+[![Watch the video](https://i.imgur.com/Ur8kCim.png)](https://www.canva.com/design/DAFumdVmae4/view "Tiny Hawk: Unix commands")
 
