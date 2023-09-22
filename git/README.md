@@ -13,7 +13,12 @@
 <details>
 <summary>Table of contents</summary>
     <ul>
-        <li><a href="#getting-started">Getting started</a>
+        <li><a href="#what-are-git-and-github">What are Git and GitHub</a>
+            <ul>
+                <li><a href="#recording"> Recording</a>
+                <li><a href="#slides"> Slides</a>
+            </ul>
+        <li><a href="#using-git-and-git-hub">Using Git and GitHub</a>
             <ul>
                 <li><a href="#0%EF%B8%8F⃣-installing-git-cygwin"> Installing git (Cygwin)</a>
                 <li><a href="#0%EF%B8%8F⃣-installing-git-mac-and-linux"> Installing git (Mac and Linux)</a>
@@ -29,14 +34,30 @@
             <ul>
                 <li><a href="#0%EF%B8%8F⃣-sync-and-pull-the-changes">Sync and pull the changes</a>
                 <li><a href="#1%EF%B8%8F⃣-commit-your-changes">Commit your changes</a>
-                <li><a href="#2%EF%B8%8F⃣-push-your-changes">Push your changes</a>
+                <li><a 
+                href="#2%EF%B8%8F⃣-push-your-changes">Push your changes</a>
+                <li><a 
+                href="#2%EF%B8%8F⃣-push-your-changes">Push your changes</a>
             </ul>
     </ul>
 </details>
 
 <br>
 
-# Getting started
+# What are Git and GitHub
+## Recording 
+*Click on the image to open the [video](https://youtu.be/hzFErKeImTs)*
+[![Watch the video](https://i.imgur.com/ytJSMpi.png)](https://youtu.be/hzFErKeImTs "Tiny Hawk: What are Git and GitHub")
+
+<br>
+
+## Slides
+*Click on the image to open the [slides](https://www.canva.com/design/DAFurH8Zj8M/pdIT0beDIdiFNPjTMQ6ZKQ/view?utm_content=DAFurH8Zj8M&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)*
+[![Slides](https://i.imgur.com/fXF5XmL.png)](https://www.canva.com/design/DAFurH8Zj8M/pdIT0beDIdiFNPjTMQ6ZKQ/view?utm_content=DAFurH8Zj8M&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink "Tiny Hawk: What are Git and GitHub")
+
+<br>
+
+# Using Git and GitHub
 ## 0️⃣ Installing git (Cygwin)
 If you are on Windows, you have probably already installed Cygwin on your device. When you were installing, Cygwin gave you the option to install additional packages, one of these was for Git. Chances are you did not install this, but that is okay we can add packages after installation (kinda). There is no package management in Cygwin outside of the setup program, so you will have to run setup-x86_64.exe again. 
 1. Open `File Explore` then to `Downloads` on your device
@@ -181,11 +202,22 @@ GitHub is the free web based platform we and many other software engineers use t
    ```sh
    git pull
    ```
-6.  Work on the exercises as you would any code on your device
+
+## 1️⃣ Make a branch
+1. Use the following command to see if there is an active branch for the changes you are planning on making
+    ```sh
+    git branch -l
+    ```
+    If so checkout that branch and work on your code
+2. If there is no branch dedicated for what you want to change, create one where `branch_name` is a descriptive name of the branch
+    ```sh
+    git checkout -b branch_name
+    ```
+3. Write your changes
 
 <br>
 
-## 1️⃣ Commit your changes
+## 2️⃣ Commit your changes
 Once you make some changes you would like to be documented you need to `commit` them. Committing changes is how you can mark versions of your code you would like to be tracked. It is a good idea to commit changes before and after you add/remove a feature that way there is a record of your changes. Also commit changes after you have finished a session of programming then `push` (see following section)
 1. To commit changes you use the `git commit` command. The parts of the command are as follows:
      - `git`: Denotes we are using a git command 
@@ -206,8 +238,16 @@ Once you make some changes you would like to be documented you need to `commit` 
 
 <br>
 
-## 2️⃣ Push your changes
+## 3️⃣ Push your changes
 Once you have finished a coding session it is a good idea to `push` your commits. The `push` command is basically the opposite of `pull`. `push` takes the changes (commits) you made on your local system and sends them to GitHub. <span style="color:red"> **IMPORTANT: always push before you pull!**</span> 
 1. Commit your changes (see above)
-2. Enter the command `git pull` to push the changes from your system to GitHub
+2. Enter the command `git push origin branch_name` to push the changes from your system to GitHub where `branch_name` is the name of the branch you are on
 3. You can confirm this worked by heading to Github and seeing the changes reflected on your repo page
+   
+<br>
+
+## 4️⃣ Create a pull request
+When you think your code is ready to merge into the main Cabrillo Robotics Code create a pull request. 
+1. Go to the pull requests page on GitHub and click on <img width="80" alt="new pull request" src="https://i.imgur.com/EXaY4og.png">
+2. Select your branch as the branch to compare to
+3. Add a description of what changes you made and why
