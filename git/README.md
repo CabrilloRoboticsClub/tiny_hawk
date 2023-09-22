@@ -33,11 +33,10 @@
         <li><a href="#maintaining-your-repo">Maintaining your repo</a>
             <ul>
                 <li><a href="#0%EF%B8%8F⃣-sync-and-pull-the-changes">Sync and pull the changes</a>
-                <li><a href="#1%EF%B8%8F⃣-commit-your-changes">Commit your changes</a>
-                <li><a 
-                href="#2%EF%B8%8F⃣-push-your-changes">Push your changes</a>
-                <li><a 
-                href="#2%EF%B8%8F⃣-push-your-changes">Push your changes</a>
+                <li><a href="#1%EF%B8%8F⃣-make-a-branch">Make a branch</a>
+                <li><a href="#2%EF%B8%8F⃣-commit-your-changes">Commit your changes</a>
+                <li><a href="#3%EF%B8%8F⃣-push-your-changes">Push your changes</a>
+                <li><a href="#4%EF%B8%8F⃣-create-a-pull-request">Create a pull request</a>
             </ul>
     </ul>
 </details>
