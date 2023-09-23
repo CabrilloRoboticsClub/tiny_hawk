@@ -204,16 +204,24 @@ GitHub is the free web based platform we and many other software engineers use t
    ```
 
 ## 1️⃣ Make a branch
-1. Use the following command to see if there is an active branch for the changes you are planning on making
+1. Pull the meta data from the remote repo
     ```sh
-    git branch -l
+    git fetch
     ```
-    If so checkout that branch and work on your code
-2. If there is no branch dedicated for what you want to change, create one where `branch_name` is a descriptive name of the branch
+2. Use the following command to see if there is an active branch for the changes you are planning on making
+    ```sh
+    git branch -a
+    ```
+    If so checkout that branch and work on your code with 
+    ```sh
+    git checkout -b your_branch origin/remote_branch
+    ```
+    Where `your_branch` is the name of your local branch and `remote_branch` is the name of the remote branch to checkout
+3. If there is no branch dedicated for what you want to change, create one where `branch_name` is a descriptive name of the branch
     ```sh
     git checkout -b branch_name
     ```
-3. Write your changes
+4. Write your changes
 
 <br>
 
