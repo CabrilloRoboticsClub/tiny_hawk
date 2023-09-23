@@ -209,13 +209,13 @@ GitHub is the free web based platform we and many other software engineers use t
     ```
 2. Use the following command to see if there is an active branch for the changes you are planning on making
     ```sh
-    git branch -a
+    git branch -r
     ```
     If so checkout that branch and work on your code with 
     ```sh
-    git checkout -b your_branch origin/remote_branch
+    git checkout remote_branch
     ```
-    Where `your_branch` is the name of your local branch and `remote_branch` is the name of the remote branch to checkout
+    Where `remote_branch` is the name of the remote branch to checkout, i.e. `origin/remote_branch` would just be `remote_branch`
 3. If there is no branch dedicated for what you want to change, create one where `branch_name` is a descriptive name of the branch
     ```sh
     git checkout -b branch_name
