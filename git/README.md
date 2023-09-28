@@ -90,20 +90,15 @@ GitHub is the free web based platform we and many other software engineers use t
 
 
 1. Go to [GitHub](https://github.com/) and follow the steps to create an account
+	- As a Cabrillo student, you can get a bunch of free goodies from GitHub Education. For now, you should continue following this guide, but later, don't forget to go to [education.github.com](https://education.github.com/). You will have to add your `STUDENTID@student.cabrillo.edu` email (it's a Gmail account).
 2. Return to the terminal (cygwin or your standard terminal) to configure git
 3. Set up your username using the following command where `<your_GitHub_username>` is the username you chose when creating your GitHub account
     ```sh
     git config --global user.name <your_GitHub_username>
     ```
-     ```sh
-    git config --global user.name CS11SI
-    ```
 4. Set up your email using the following command where `<your_GitHub_email>` is the email you used when creating your GitHub account
     ```sh
     git config --global user.email <your_GitHub_email>
-    ```
-     ```sh
-    git config --global user.email stlheure@cabrillo.edu
     ```
 
 <br>
@@ -115,10 +110,10 @@ GitHub is the free web based platform we and many other software engineers use t
     ```
 2. Enter yes for the prompts 
 3. You will be prompted to with the text below
-    <div><pre style="margin: 0; line-height: 125%"><span style="color: #DA70D6">***Query:</span><span style="color: white"> Enter the value CYGWIN for the daemon: []</span></div>
+    <div><pre style="margin: 0; line-height: 125%"><span style="color: #DA70D6">***Query:</span><span style="color: white"> Enter the value CYGWIN for the daemon: []</span></pre></div>
 
     For the value enter `ntsec`
-    <div><pre style="margin: 0; line-height: 125%"><span style="color: #DA70D6">***Query:</span><span style="color: white"> Enter the value CYGWIN for the daemon: [] ntsec</span></div>
+    <div><pre style="margin: 0; line-height: 125%"><span style="color: #DA70D6">***Query:</span><span style="color: white"> Enter the value CYGWIN for the daemon: [] ntsec</span></pre></div>
 
 <br>
 
@@ -132,7 +127,7 @@ GitHub is the free web based platform we and many other software engineers use t
     ```sh
     ssh-keygen
     ```
-    - When it asks for the file location, press enter to save it to the default location 
+    - When it asks for the file location, press enter to save it to the default location (`~/.ssh`)
     - Hit enter when it asks for the password to not save a password or enter one if you think you can remember it
 2. Copy the generated ssh key
     ```sh
@@ -142,7 +137,7 @@ GitHub is the free web based platform we and many other software engineers use t
 <br>
 
 ## 4️⃣ Add the SSH key to GitHub
-1. Return to GitHub and open your settings by clicking on your icon then ⚙️ `settings`
+1. Return to GitHub and open your [settings](https://github.com/settings/) by clicking on your icon then ⚙️ `settings`
 2. Scroll to  🔑 `SSH and GPG keys`
 
    <img width="300" alt="Tabs" src="https://github.com/steph1111/F23_CS11_SI/assets/96219204/43005ec1-80b4-4a11-8659-41eff2ee83b7">
@@ -154,34 +149,18 @@ GitHub is the free web based platform we and many other software engineers use t
 
 <br>
 
-## 5️⃣ Fork the repo to your account
-1. Open the `F23_CS11_SI` GitHub repo in your browser: https://github.com/steph1111/F23_CS11_SI
-2. At the top of the page click on <img width="80" alt="fork" src="https://github.com/steph1111/F23_CS11_SI/assets/96219204/007c608d-9d06-4db9-bee0-eaae1cd0343d">
-
-    <img width="582" alt="fork" src="https://github.com/steph1111/F23_CS11_SI/assets/96219204/80964a3a-e63b-4433-a070-0b69f7c4e747">
-
-3. Follow the steps to fork the repo to your account by creating a new fork. Click on <img width="80" alt="create fork" src="https://github.com/steph1111/F23_CS11_SI/assets/96219204/575eb007-7936-40eb-9bbd-2d26490876cf"> when you are finished. This creates your own personal version of this repository
-
-    <img width="582" alt="fork page" src="https://github.com/steph1111/F23_CS11_SI/assets/96219204/34ac40e0-c3e2-4717-9050-9fc804b8cf4a">
-
-<br>
-
-## 6️⃣ Clone your forked repo to your system
-1. Open your forked repo. At the top of the page click the green <img width="70" alt="code" src="https://github.com/steph1111/F23_CS11_SI/assets/96219204/e6ab5cd8-2adf-44bd-8dab-865fefea6429">
+## 5️⃣ Clone the repository to your system
+1. Open the `tiny_hawk` [repository](https://github.com/CabrilloRoboticsClub/tiny_hawk/). At the top of the page click the green <img width="70" alt="code" src="https://github.com/steph1111/F23_CS11_SI/assets/96219204/e6ab5cd8-2adf-44bd-8dab-865fefea6429">
  button. Open the SSH tab and copy the link
 
-      <img width="364" alt="Screen Shot 2023-09-10 at 6 50 51 PM" src="https://github.com/steph1111/F23_CS11_SI/assets/96219204/477b25d6-1944-47e7-a0ea-507461b5d0cb">
+  <img width="364" alt="Screen Shot 2023-09-10 at 6 50 51 PM" src="https://github.com/steph1111/F23_CS11_SI/assets/96219204/477b25d6-1944-47e7-a0ea-507461b5d0cb">
 
-2. Return to your terminal and navigate using `cd` to where you would like this repo contents to live with your file system
-3. To clone your repo use the `git clone` command and paste the link from step 1. This points to the existing repo on GitHub and makes a connected copy, or clone, on your system
-    ```sh
-    git clone <link_here>
-    ```
-    Here is an example of how I would clone my repo (your link is different)
+2. Return to your terminal and navigate using `cd` to where you would like this repo's contents to live with your file system (Perhaps inside a Documents folder?)
+3. To clone the repo use the `git clone` command and paste the link from step 1. This points to the existing repo on GitHub and makes a connected copy, or clone, on your system. 
     ```sh
     git clone git@github.com:CabrilloRoboticsClub/tiny_hawk.git
     ```
-4. To confirm the clone was successful list your files with `ls`. You should see the name of the cloned repo in your current directory
+4. To confirm the clone was successful list your files with `ls`. You should see the name of the cloned repo in your current directory.
 
 <br>
 
