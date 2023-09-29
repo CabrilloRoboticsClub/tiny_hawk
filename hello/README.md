@@ -171,6 +171,9 @@ A topic is a communication channel for nodes to publish (send) and subscribe (re
    <img width="650" alt="listener" src="https://i.imgur.com/6Hw8V3q.png">
 
 1. Open a new terminal and enter the command `rqt_graph`. Then click on the the Graphical Tools icon on the toolbar to open the display
+    ```sh
+    rqt_graph 
+    ```
    
     <img width="650" alt="rqt_graph" src="https://i.imgur.com/iPSwWPG.png">
 
@@ -296,7 +299,10 @@ Navigate to the `src` directory with `cd ~/ros2_ws/src/`
     ```
 4. Publish a message by adding this to the `pub_callback` to publish a message every 0.5 seconds
    ```py
-    self._publisher.publish(f"your name, {self._counter}")
+    msg = String()
+    name = "tiny hawk" # Change this to your name
+    msg.data = "%s: %d" % (name, self._counter)
+    self._publisher.publish(msg)
    ```
 5. Finally add the dependencies to `package.xml`
     ```xml
@@ -334,4 +340,14 @@ Navigate to the `src` directory with `cd ~/ros2_ws/src/`
 3. In another terminal run 
     ```
     ros2 run pub_sub sub_demo
+    ```
+
+#### Further inspection 
+1. Open a new terminal and list the topics again, you should see our demo topic 
+    ```sh
+    ros2 topic list 
+    ```
+2. You can also view the graph with `rqt_graph` and open graphical tools
+    ```py 
+    rqt_graph
     ```

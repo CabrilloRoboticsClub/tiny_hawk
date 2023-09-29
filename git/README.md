@@ -167,22 +167,14 @@ GitHub is the free web based platform we and many other software engineers use t
 # Maintaining your repo
 
 ## 0️⃣ Sync and pull the changes
-1. Open your forked repo in GitHub. If there are no changes you should see a message that looks like the following stating this branch is up to date. If this is the case it means I have not made changes and you can ignore the following steps.
-    ![up_to_date](https://github.com/steph1111/F23_CS11_SI/assets/96219204/a67537ba-91e8-4ec6-907d-8181b769b281)
-
-2. If there are upstream changes to merge there should be a message on this page similar to the following:
-    ![x_commits_behind](https://github.com/steph1111/F23_CS11_SI/assets/96219204/786f9c39-25de-4fd2-8b2b-2012b332646d)
-   This means there are changes to the upstream repo that need to be synced to your fork
-3. Click on the button titled 🔄 `Sync fork`, you should see a window stating the code is out of date. Click <img width="80" alt="update branch" src="https://github.com/steph1111/F23_CS11_SI/assets/96219204/3330cd21-db4f-4ed4-9803-36796deea681">
-
-4. Next navigate to your fork on your system 
-5. Enter the command `git pull` to pull the changes on GitHub onto your device
+1. Next navigate to the repo on your system
+2. Enter the command `git pull` to pull the changes on GitHub onto your device
    ```sh
-   git pull
+   git pull origin main
    ```
 
 ## 1️⃣ Make a branch
-1. Pull the meta data from the remote repo
+1. Pull the meta data from the remote repo to update the remote branches
     ```sh
     git fetch
     ```
@@ -195,7 +187,7 @@ GitHub is the free web based platform we and many other software engineers use t
     git checkout remote_branch
     ```
     Where `remote_branch` is the name of the remote branch to checkout, i.e. `origin/remote_branch` would just be `remote_branch`
-3. If there is no branch dedicated for what you want to change, create one where `branch_name` is a descriptive name of the branch
+3. If there is no branch dedicated for what you want to change, create an issue 
     ```sh
     git checkout -b branch_name
     ```

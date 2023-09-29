@@ -7,7 +7,7 @@ class subscriber_demo(Node):
     def __init__(self):
         super().__init__("subscriber")
         self.get_logger().info("Subscriber node started")
-        self.subscription = self.create_subscription(String,'demo_topic', self.sub_callback, 10)
+        self._subscription = self.create_subscription(String, "demo_topic", self.sub_callback, 10)
     
     def sub_callback(self, msg):
         self.get_logger().info(f"Hello {msg.data}")
