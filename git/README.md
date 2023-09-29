@@ -13,7 +13,12 @@
 <details>
 <summary>Table of contents</summary>
     <ul>
-        <li><a href="#getting-started">Getting started</a>
+        <li><a href="#what-are-git-and-github">What are Git and GitHub</a>
+            <ul>
+                <li><a href="#recording"> Recording</a>
+                <li><a href="#slides"> Slides</a>
+            </ul>
+        <li><a href="#using-git-and-git-hub">Using Git and GitHub</a>
             <ul>
                 <li><a href="#0%EF%B8%8F⃣-installing-git-cygwin"> Installing git (Cygwin)</a>
                 <li><a href="#0%EF%B8%8F⃣-installing-git-mac-and-linux"> Installing git (Mac and Linux)</a>
@@ -28,15 +33,30 @@
         <li><a href="#maintaining-your-repo">Maintaining your repo</a>
             <ul>
                 <li><a href="#0%EF%B8%8F⃣-sync-and-pull-the-changes">Sync and pull the changes</a>
-                <li><a href="#1%EF%B8%8F⃣-commit-your-changes">Commit your changes</a>
-                <li><a href="#2%EF%B8%8F⃣-push-your-changes">Push your changes</a>
+                <li><a href="#1%EF%B8%8F⃣-make-a-branch">Make a branch</a>
+                <li><a href="#2%EF%B8%8F⃣-commit-your-changes">Commit your changes</a>
+                <li><a href="#3%EF%B8%8F⃣-push-your-changes">Push your changes</a>
+                <li><a href="#4%EF%B8%8F⃣-create-a-pull-request">Create a pull request</a>
             </ul>
     </ul>
 </details>
 
 <br>
 
-# Getting started
+# What are Git and GitHub
+## Recording 
+*Click on the image to open the [video](https://youtu.be/hzFErKeImTs)*
+[![Watch the video](https://i.imgur.com/ytJSMpi.png)](https://youtu.be/hzFErKeImTs "Tiny Hawk: What are Git and GitHub")
+
+<br>
+
+## Slides
+*Click on the image to open the [slides](https://www.canva.com/design/DAFurH8Zj8M/pdIT0beDIdiFNPjTMQ6ZKQ/view?utm_content=DAFurH8Zj8M&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)*
+[![Slides](https://i.imgur.com/fXF5XmL.png)](https://www.canva.com/design/DAFurH8Zj8M/pdIT0beDIdiFNPjTMQ6ZKQ/view?utm_content=DAFurH8Zj8M&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink "Tiny Hawk: What are Git and GitHub")
+
+<br>
+
+# Using Git and GitHub
 ## 0️⃣ Installing git (Cygwin)
 If you are on Windows, you have probably already installed Cygwin on your device. When you were installing, Cygwin gave you the option to install additional packages, one of these was for Git. Chances are you did not install this, but that is okay we can add packages after installation (kinda). There is no package management in Cygwin outside of the setup program, so you will have to run setup-x86_64.exe again. 
 1. Open `File Explore` then to `Downloads` on your device
@@ -70,20 +90,15 @@ GitHub is the free web based platform we and many other software engineers use t
 
 
 1. Go to [GitHub](https://github.com/) and follow the steps to create an account
+	- As a Cabrillo student, you can get a bunch of free goodies from GitHub Education. For now, you should continue following this guide, but later, don't forget to go to [education.github.com](https://education.github.com/). You will have to add your `STUDENTID@student.cabrillo.edu` email (it's a Gmail account).
 2. Return to the terminal (cygwin or your standard terminal) to configure git
 3. Set up your username using the following command where `<your_GitHub_username>` is the username you chose when creating your GitHub account
     ```sh
     git config --global user.name <your_GitHub_username>
     ```
-     ```sh
-    git config --global user.name CS11SI
-    ```
 4. Set up your email using the following command where `<your_GitHub_email>` is the email you used when creating your GitHub account
     ```sh
     git config --global user.email <your_GitHub_email>
-    ```
-     ```sh
-    git config --global user.email stlheure@cabrillo.edu
     ```
 
 <br>
@@ -95,10 +110,10 @@ GitHub is the free web based platform we and many other software engineers use t
     ```
 2. Enter yes for the prompts 
 3. You will be prompted to with the text below
-    <div><pre style="margin: 0; line-height: 125%"><span style="color: #DA70D6">***Query:</span><span style="color: white"> Enter the value CYGWIN for the daemon: []</span></div>
+    <div><pre style="margin: 0; line-height: 125%"><span style="color: #DA70D6">***Query:</span><span style="color: white"> Enter the value CYGWIN for the daemon: []</span></pre></div>
 
     For the value enter `ntsec`
-    <div><pre style="margin: 0; line-height: 125%"><span style="color: #DA70D6">***Query:</span><span style="color: white"> Enter the value CYGWIN for the daemon: [] ntsec</span></div>
+    <div><pre style="margin: 0; line-height: 125%"><span style="color: #DA70D6">***Query:</span><span style="color: white"> Enter the value CYGWIN for the daemon: [] ntsec</span></pre></div>
 
 <br>
 
@@ -112,7 +127,7 @@ GitHub is the free web based platform we and many other software engineers use t
     ```sh
     ssh-keygen
     ```
-    - When it asks for the file location, press enter to save it to the default location 
+    - When it asks for the file location, press enter to save it to the default location (`~/.ssh`)
     - Hit enter when it asks for the password to not save a password or enter one if you think you can remember it
 2. Copy the generated ssh key
     ```sh
@@ -122,7 +137,7 @@ GitHub is the free web based platform we and many other software engineers use t
 <br>
 
 ## 4️⃣ Add the SSH key to GitHub
-1. Return to GitHub and open your settings by clicking on your icon then ⚙️ `settings`
+1. Return to GitHub and open your [settings](https://github.com/settings/) by clicking on your icon then ⚙️ `settings`
 2. Scroll to  🔑 `SSH and GPG keys`
 
    <img width="300" alt="Tabs" src="https://github.com/steph1111/F23_CS11_SI/assets/96219204/43005ec1-80b4-4a11-8659-41eff2ee83b7">
@@ -134,58 +149,53 @@ GitHub is the free web based platform we and many other software engineers use t
 
 <br>
 
-## 5️⃣ Fork the repo to your account
-1. Open the `F23_CS11_SI` GitHub repo in your browser: https://github.com/steph1111/F23_CS11_SI
-2. At the top of the page click on <img width="80" alt="fork" src="https://github.com/steph1111/F23_CS11_SI/assets/96219204/007c608d-9d06-4db9-bee0-eaae1cd0343d">
-
-    <img width="582" alt="fork" src="https://github.com/steph1111/F23_CS11_SI/assets/96219204/80964a3a-e63b-4433-a070-0b69f7c4e747">
-
-3. Follow the steps to fork the repo to your account by creating a new fork. Click on <img width="80" alt="create fork" src="https://github.com/steph1111/F23_CS11_SI/assets/96219204/575eb007-7936-40eb-9bbd-2d26490876cf"> when you are finished. This creates your own personal version of this repository
-
-    <img width="582" alt="fork page" src="https://github.com/steph1111/F23_CS11_SI/assets/96219204/34ac40e0-c3e2-4717-9050-9fc804b8cf4a">
-
-<br>
-
-## 6️⃣ Clone your forked repo to your system
-1. Open your forked repo. At the top of the page click the green <img width="70" alt="code" src="https://github.com/steph1111/F23_CS11_SI/assets/96219204/e6ab5cd8-2adf-44bd-8dab-865fefea6429">
+## 5️⃣ Clone the repository to your system
+1. Open the `tiny_hawk` [repository](https://github.com/CabrilloRoboticsClub/tiny_hawk/). At the top of the page click the green <img width="70" alt="code" src="https://github.com/steph1111/F23_CS11_SI/assets/96219204/e6ab5cd8-2adf-44bd-8dab-865fefea6429">
  button. Open the SSH tab and copy the link
 
-      <img width="364" alt="Screen Shot 2023-09-10 at 6 50 51 PM" src="https://github.com/steph1111/F23_CS11_SI/assets/96219204/477b25d6-1944-47e7-a0ea-507461b5d0cb">
+  <img width="364" alt="Screen Shot 2023-09-10 at 6 50 51 PM" src="https://github.com/steph1111/F23_CS11_SI/assets/96219204/477b25d6-1944-47e7-a0ea-507461b5d0cb">
 
-2. Return to your terminal and navigate using `cd` to where you would like this repo contents to live with your file system
-3. To clone your repo use the `git clone` command and paste the link from step 1. This points to the existing repo on GitHub and makes a connected copy, or clone, on your system
-    ```sh
-    git clone <link_here>
-    ```
-    Here is an example of how I would clone my repo (your link is different)
+2. Return to your terminal and navigate using `cd` to where you would like this repo's contents to live with your file system (Perhaps inside a Documents folder?)
+3. To clone the repo use the `git clone` command and paste the link from step 1. This points to the existing repo on GitHub and makes a connected copy, or clone, on your system. 
     ```sh
     git clone git@github.com:CabrilloRoboticsClub/tiny_hawk.git
     ```
-4. To confirm the clone was successful list your files with `ls`. You should see the name of the cloned repo in your current directory
+4. To confirm the clone was successful list your files with `ls`. You should see the name of the cloned repo in your current directory.
 
 <br>
 
 # Maintaining your repo
 
 ## 0️⃣ Sync and pull the changes
-1. Open your forked repo in GitHub. If there are no changes you should see a message that looks like the following stating this branch is up to date. If this is the case it means I have not made changes and you can ignore the following steps.
-    ![up_to_date](https://github.com/steph1111/F23_CS11_SI/assets/96219204/a67537ba-91e8-4ec6-907d-8181b769b281)
-
-2. If there are upstream changes to merge there should be a message on this page similar to the following:
-    ![x_commits_behind](https://github.com/steph1111/F23_CS11_SI/assets/96219204/786f9c39-25de-4fd2-8b2b-2012b332646d)
-   This means there are changes to the upstream repo that need to be synced to your fork
-3. Click on the button titled 🔄 `Sync fork`, you should see a window stating the code is out of date. Click <img width="80" alt="update branch" src="https://github.com/steph1111/F23_CS11_SI/assets/96219204/3330cd21-db4f-4ed4-9803-36796deea681">
-
-4. Next navigate to your fork on your system 
-5. Enter the command `git pull` to pull the changes on GitHub onto your device
+1. Next navigate to the repo on your system
+2. Enter the command `git pull` to pull the changes on GitHub onto your device
    ```sh
-   git pull
+   git pull origin main
    ```
-6.  Work on the exercises as you would any code on your device
+
+## 1️⃣ Make a branch
+1. Pull the meta data from the remote repo to update the remote branches
+    ```sh
+    git fetch
+    ```
+2. Use the following command to see if there is an active branch for the changes you are planning on making
+    ```sh
+    git branch -r
+    ```
+    If so checkout that branch and work on your code with 
+    ```sh
+    git checkout remote_branch
+    ```
+    Where `remote_branch` is the name of the remote branch to checkout, i.e. `origin/remote_branch` would just be `remote_branch`
+3. If there is no branch dedicated for what you want to change, create an issue 
+    ```sh
+    git checkout -b branch_name
+    ```
+4. Write your changes
 
 <br>
 
-## 1️⃣ Commit your changes
+## 2️⃣ Commit your changes
 Once you make some changes you would like to be documented you need to `commit` them. Committing changes is how you can mark versions of your code you would like to be tracked. It is a good idea to commit changes before and after you add/remove a feature that way there is a record of your changes. Also commit changes after you have finished a session of programming then `push` (see following section)
 1. To commit changes you use the `git commit` command. The parts of the command are as follows:
      - `git`: Denotes we are using a git command 
@@ -206,8 +216,16 @@ Once you make some changes you would like to be documented you need to `commit` 
 
 <br>
 
-## 2️⃣ Push your changes
+## 3️⃣ Push your changes
 Once you have finished a coding session it is a good idea to `push` your commits. The `push` command is basically the opposite of `pull`. `push` takes the changes (commits) you made on your local system and sends them to GitHub. <span style="color:red"> **IMPORTANT: always push before you pull!**</span> 
 1. Commit your changes (see above)
-2. Enter the command `git pull` to push the changes from your system to GitHub
+2. Enter the command `git push origin branch_name` to push the changes from your system to GitHub where `branch_name` is the name of the branch you are on
 3. You can confirm this worked by heading to Github and seeing the changes reflected on your repo page
+   
+<br>
+
+## 4️⃣ Create a pull request
+When you think your code is ready to merge into the main Cabrillo Robotics Code create a pull request. 
+1. Go to the pull requests page on GitHub and click on <img width="80" alt="new pull request" src="https://i.imgur.com/EXaY4og.png">
+2. Select your branch as the branch to compare to
+3. Add a description of what changes you made and why

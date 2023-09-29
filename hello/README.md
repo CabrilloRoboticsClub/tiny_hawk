@@ -141,7 +141,7 @@
     <img width="650" alt="hello" src="https://i.imgur.com/pO6prot.png">
 
 19. Congratulations, you have created your first node in ROS2
-20. The full complete solution is avaliable [here](https://github.com/CabrilloRoboticsClub/tiny_hawk/blob/main/hello/hello.py)
+20. The full complete solution is available [here](https://github.com/CabrilloRoboticsClub/tiny_hawk/blob/main/hello/hello.py)
 
 
 <br>
@@ -171,6 +171,9 @@ A topic is a communication channel for nodes to publish (send) and subscribe (re
    <img width="650" alt="listener" src="https://i.imgur.com/6Hw8V3q.png">
 
 1. Open a new terminal and enter the command `rqt_graph`. Then click on the the Graphical Tools icon on the toolbar to open the display
+    ```sh
+    rqt_graph 
+    ```
    
     <img width="650" alt="rqt_graph" src="https://i.imgur.com/iPSwWPG.png">
 
@@ -189,3 +192,161 @@ A topic is a communication channel for nodes to publish (send) and subscribe (re
    ros2 topic echo /chatter # Where chatter is the name of the topic
    ```
     This actually creates another subscriber
+
+<br>
+
+## ROS2 pub/sub 
+### What are publishers and subscribers 
+In ROS2, publishers and subscribers are one of the ways in which nodes communicate with each other. These communications are passed over channels called topics as discussed above. A subscriber sends a message over a topic, and and a subscriber node can listen to that topic to receive data. In the previous example, the `talker` is a publisher and `listener` is a subscriber.
+
+### Create a new package for the following demo
+Navigate to the `src` directory with `cd ~/ros2_ws/src/` 
+1. Create a package with
+   ```sh
+   ros2 pkg create pub_sub --build-type ament_python --dependencies rclpy
+   ```
+2. Build the package with `colcon build`
+3. Open the new package in VS code called `pub_sub`
+
+
+### Writing a publisher and subscriber
+#### General setup
+1. Navigate to the package with `cd pub_sub/pub_sub/`
+2. Create files
+   1. Create a file for the subscriber and make it executable
+      ```sh
+       touch sub_demo.py
+       chmod +x sub_demo.py
+      ```
+   2. Create a file for the publisher and make it executable
+       ```sh 
+       touch pub_demo.py 
+       chmod +x pub_demo.py
+       ```
+3. Add base code  
+   1. In `sub_demo.py` add the basic framework for a ROS2 node
+      ```py
+      #!/usr/bin/env python3
+      import rclpy 
+      from rclpy.node import Node 
+
+      class subscriber_demo(Node):
+        def __init__(self):
+          super().__init__("subscriber")
+          self.get_logger().info("Subscriber node started")
+
+      def main(args=None):
+        rclpy.init(args=args)
+        sub_node = subscriber_demo()
+        rclpy.spin(sub_node)
+        rclpy.shutdown()
+      
+      if __name__ == "__main__":
+        main()
+      ```
+   2. In `pub_demo.py` add the basic framework for a ROS2 node 
+      ```py
+      #!/usr/bin/env python3
+      import rclpy 
+      from rclpy.node import Node 
+
+      class publisher_demo(Node):
+        def __init__(self):
+          super().__init__("publisher")
+          self.get_logger().info("Publisher node started")
+
+      def main(args=None):
+        rclpy.init(args=args)
+        pub_node = publisher_demo()
+        rclpy.spin(pub_node)
+        rclpy.shutdown()
+      
+      if __name__ == "__main__":
+        main()
+      ```
+4. Set up the nodes in `setup.py` by adding the following to the `console_scripts` value list
+    ```py
+    "sub_demo = pub_sub.sub_demo:main",
+    "pub_demo = pub_sub.pub_demo:main"
+    ```
+    Make sure the list items are comma separated 
+
+#### Publisher:
+1. Add a timer to the publisher. The timer specifies how frequently the nodes will publish messages
+    1. Initialize the timer 
+        ```py
+        self.create_timer(0.5, self.pub_callback) 
+        self._counter = 0
+        ```
+    2. Add another member function in the class for the callback
+        ```py
+        def pub_callback(self):
+          self.get_logger().info(f"Message #{self._counter}: My name is ___")
+          self._counter += 1
+        ```
+2. Initialize the publisher by adding this line to the constructor
+    ```py
+    self._publisher = self.create_publisher(String, "demo_topic", 10)
+    ```
+   **String:** We must specify the type of message we are going to send, like a data type. In this example we are publishing a `String`. You can create custom message types as well
+   
+   **demo_topic:** The name of the topic to publish messages to 
+
+   **10:** 10 specifies the queue size. Queue size is a required QoS (quality of service) setting that limits the amount of queued messages if a subscriber is not receiving them fast enough
+3. We used the `String` message type, so we have to import the module 
+    ```py
+    from std_msgs.msg import String
+    ```
+4. Publish a message by adding this to the `pub_callback` to publish a message every 0.5 seconds
+   ```py
+    msg = String()
+    name = "tiny hawk" # Change this to your name
+    msg.data = f"{name}: {self._counter}"
+    self._publisher.publish(msg)
+   ```
+5. Finally add the dependencies to `package.xml`
+    ```xml
+    <depend>rclpy</depend>  <!-- This should already be there -->
+    <depend>std_msgs</depend>
+    ```
+
+#### Subscriber:
+1. Initialize the publisher by adding this line to the constructor
+    ```py
+    self.subscription = self.create_subscription(String,"demo_topic", self.sub_callback, 10)
+    ```
+    Note that the topic name used here MUST match that of the publisher for them to communicate
+2. Add another member function in the class for the callback. You do not need to start a timer because callback gets called as soon as it receives a message
+    ```py 
+    def sub_callback(self, msg):
+          self.get_logger().info(f"Hello {msg.data}")
+    ```
+3. Be sure to import String in `sub_demo.py` as well
+    ```py
+    from std_msgs.msg import String
+    ```
+
+#### Run the program
+1. Return to the workspace in your terminal and run the following to avoid having to re-build every time you wish to run the nodes 
+    ```sh
+    colcon build --symlink-install
+    source ~/.bashrc
+    ```
+2. In one terminal run 
+    ```sh 
+    ros2 run pub_sub pub_demo
+    ```
+3. In another terminal run 
+    ```
+    ros2 run pub_sub sub_demo
+    ```
+
+#### Further inspection 
+1. Open a new terminal and list the topics again, you should see our demo topic 
+    ```sh
+    ros2 topic list 
+    ```
+2. You can also view the graph with `rqt_graph` and open graphical tools
+    ```py 
+    rqt_graph
+    ```
