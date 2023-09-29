@@ -301,7 +301,7 @@ Navigate to the `src` directory with `cd ~/ros2_ws/src/`
    ```py
     msg = String()
     name = "tiny hawk" # Change this to your name
-    msg.data = "%s: %d" % (name, self._counter)
+    msg.data = f"{name}: {self._counter}"
     self._publisher.publish(msg)
    ```
 5. Finally add the dependencies to `package.xml`

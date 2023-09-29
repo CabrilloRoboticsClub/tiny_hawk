@@ -14,7 +14,7 @@ class publisher_demo(Node):
     def pub_callback(self):
         msg = String()
         name = "tiny hawk" # Change this to your name
-        msg.data = "%s: %d" % (name, self._counter)
+        msg.data = f"{name}: {self._counter}"
         self._publisher.publish(msg)
         self.get_logger().info(f"Message #{self._counter}: My name is {name}")
         self._counter += 1
