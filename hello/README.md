@@ -292,7 +292,7 @@ Navigate to the `src` directory with `cd ~/ros2_ws/src/`
     Make sure the list items are comma separated 
 
 #### Publisher:
-1. Add a timer to the publisher. The timer specifies how frequently the nodes will publish messages
+1. Add a timer to the publisher's constructor. The timer specifies how frequently the nodes will publish messages
     1. Initialize the timer 
         ```py
         self.create_timer(0.5, self.pub_callback) 
@@ -304,7 +304,7 @@ Navigate to the `src` directory with `cd ~/ros2_ws/src/`
           self.get_logger().info(f"Message #{self._counter}: My name is ___")
           self._counter += 1
         ```
-2. Initialize the publisher by adding this line to the constructor
+2. Initialize the publisher by adding this line to the constructor (above the two lines you just added)
     ```py
     self._publisher = self.create_publisher(String, "demo_topic", 10)
     ```
