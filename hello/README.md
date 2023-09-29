@@ -86,7 +86,7 @@
      ```py
      node = Hello()
      ```
-11. Go back to the constructor and use the logger to output "Hello world". This is basically a print statement
+11. Go back to the constructor function for the Hello Node and use the `get_logger()` function to output "Hello world" to the console, similar to `print("Hello world")`,`cout << "Hello World";`, and `System.out.println("Hello world");`. Note on constructors: since we define Classes ourselves, we can also create constructor methods to define how instances of the class should be created (e.g. setting member variables).
     ```py
     self.get_logger().info("Hello world")
     ```
