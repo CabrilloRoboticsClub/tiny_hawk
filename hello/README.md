@@ -94,23 +94,44 @@
       ```py
       rclpy.spin(node)
       ```
-13. We would like to run the node with `ros2 run` and to do this we need to set up the node. We will do this in `setup.py`. Go inside the array of `console scripts` and add a line that states:
+13. Your code should now look like this:
+    ```py
+    #!/usr/bin/env python3
+
+    import rclpy
+    from rclpy.node import Node
+
+    class Hello(Node):
+      def __init__(self):
+        super().__init__("Hello") # Calls the constructor of the Node class
+        self.get_logger().info("Hello world")
+
+    def main(args=None):
+      rclpy.init(args=args) # Initialize communications 
+      node = Hello()
+      rclpy.spin(node)
+      rclpy.shutdown() # Shutdown communications and destroy node
+
+    if __name__ == "__main__":
+      main()
+    ```
+14. We would like to run the node with `ros2 run` and to do this we need to set up the node. We will do this in `setup.py`. Go inside the array of `console scripts` and add a line that states:
     ```py
     # executable = package.file_name:function_to_run
     "hello = hello.hello:main"
     ```
-14. Navigate to the workspace directory. We can skip having to re-build the script after making changing the by entering the following in the terminal
+15. Navigate to the workspace directory. We can skip having to re-build the script after making changing the by entering the following in the terminal
     ```sh
     cd ../../..
     colcon build --symlink-install
     source ~/.bashrc
-15. The previous command will set you back to the home directory, so we need to navigate back to the workspace to run the executable. Be sure to always run from the workspace
+16. The previous command will set you back to the home directory, so we need to navigate back to the workspace to run the executable. Be sure to always run from the workspace
     ```sh
     cd ros2_ws/
     ros2 run hello hello
     ```
-16. Use `CTRL-C` to kill the node
-17. A very common task in ROS2 is to use a timer and a callback. This enables you to call a function every n seconds. We will be printing "Hello World" every second
+17. Use `CTRL-C` to kill the node
+18. A very common task in ROS2 is to use a timer and a callback. This enables you to call a function every n seconds. We will be printing "Hello World" every second
     1.  First create a timer as another function in the class 
         ```py 
         def timer_callback(self):
@@ -134,14 +155,14 @@
         ```
         self._counter += 1
         ```
-18. Run your node again to view the changes
+19. Run your node again to view the changes
     ```sh
     ros2 run hello hello
     ```
     <img width="650" alt="hello" src="https://i.imgur.com/pO6prot.png">
 
-19. Congratulations, you have created your first node in ROS2
-20. The full complete solution is available [here](https://github.com/CabrilloRoboticsClub/tiny_hawk/blob/main/hello/hello.py)
+20. Congratulations, you have created your first node in ROS2
+21. The full complete solution is available [here](https://github.com/CabrilloRoboticsClub/tiny_hawk/blob/main/hello/hello.py)
 
 
 <br>
