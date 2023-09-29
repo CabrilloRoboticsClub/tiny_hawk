@@ -32,9 +32,9 @@
 
    Notable files and directories:
      - **pkg.xml**
-        - The name of the package
-        - The license 
-        - Dependencies. Any time your package depends on another package, you add it to the dependencies 
+        - Defines the name of the package
+        - Determines the license for the code 
+        - Handles dependencies. Any time your package depends on another package, you add it to the dependencies 
         - Publication stuff 
       - **setup.py**
         - Similar to pkg.xml 
@@ -43,7 +43,7 @@
         - Do not touch
       - **pkg_name**
         - Directory with the same name as your package (`hello`)
-        - This is where you create nodes 
+        - This is where you will write code and create nodes
         - There will be an `__init__.py` file by default 
 
 <br>
@@ -73,10 +73,9 @@
 8. The first thing to do in the `main()` function is to initialize ROS2 communications and then terminate them
     ```py 
     rclpy.init(args=args) # Initialize communications 
-    # Here is the node itself, it is not the file or program itself
     rclpy.shutdown() # Shutdown communications and destroy node
     ```
-9. Nodes are created using Object Orientated Programming (OOP). Create a class that inherits from rclpy's Node, this allows us to have access to all the functionalities of ROS2
+9. Nodes exist in your program as objects. Create a class that inherits from rclpy's Node, this allows us to have access to all the functionalities of ROS2. More info on Objects/Classes: Objects are data types that we (the developers) define, and they contain a combination of data as well as functions/methods. Objects are instances of a Class, which define the types of variables an object can have and how its functions work.
     ```py
     class Hello(Node):
       def __init__(self):
@@ -86,7 +85,7 @@
      ```py
      node = Hello()
      ```
-11. Go back to the constructor and use the logger to output "Hello world". This is basically a print statement
+11. Go back to the constructor function for the Hello Node and use the `get_logger()` function to output "Hello world" to the console, similar to `print("Hello world")`,`cout << "Hello World";`, and `System.out.println("Hello world");`. Note on constructors: since we define Classes ourselves, we can also create constructor methods to define how instances of the class should be created (e.g. setting member variables).
     ```py
     self.get_logger().info("Hello world")
     ```
@@ -94,23 +93,44 @@
       ```py
       rclpy.spin(node)
       ```
-13. We would like to run the node with `ros2 run` and to do this we need to set up the node. We will do this in `setup.py`. Go inside the array of `console scripts` and add a line that states:
+13. Your code should now look like this:
+    ```py
+    #!/usr/bin/env python3
+
+    import rclpy
+    from rclpy.node import Node
+
+    class Hello(Node):
+      def __init__(self):
+        super().__init__("Hello") # Calls the constructor of the Node class
+        self.get_logger().info("Hello world")
+
+    def main(args=None):
+      rclpy.init(args=args) # Initialize communications 
+      node = Hello()
+      rclpy.spin(node)
+      rclpy.shutdown() # Shutdown communications and destroy node
+
+    if __name__ == "__main__":
+      main()
+    ```
+14. We would like to run the node with `ros2 run` and to do this we need to set up the node. We will do this in `setup.py`. Go inside the array of `console scripts` and add a line that states:
     ```py
     # executable = package.file_name:function_to_run
     "hello = hello.hello:main"
     ```
-14. Navigate to the workspace directory. We can skip having to re-build the script after making changing the by entering the following in the terminal
+15. Navigate to the workspace directory. We can skip having to re-build the script after making changing the by entering the following in the terminal
     ```sh
     cd ../../..
     colcon build --symlink-install
     source ~/.bashrc
-15. The previous command will set you back to the home directory, so we need to navigate back to the workspace to run the executable. Be sure to always run from the workspace
+16. The previous command will set you back to the home directory, so we need to navigate back to the workspace to run the executable. Be sure to always run from the workspace
     ```sh
     cd ros2_ws/
     ros2 run hello hello
     ```
-16. Use `CTRL-C` to kill the node
-17. A very common task in ROS2 is to use a timer and a callback. This enables you to call a function every n seconds. We will be printing "Hello World" every second
+17. Use `CTRL-C` to kill the node
+18. A very common task in ROS2 is to use a timer and a callback. This enables you to call a function every n seconds. We will be printing "Hello World" every second
     1.  First create a timer as another function in the class 
         ```py 
         def timer_callback(self):
@@ -134,14 +154,14 @@
         ```
         self._counter += 1
         ```
-18. Run your node again to view the changes
+19. Run your node again to view the changes
     ```sh
     ros2 run hello hello
     ```
     <img width="650" alt="hello" src="https://i.imgur.com/pO6prot.png">
 
-19. Congratulations, you have created your first node in ROS2
-20. The full complete solution is available [here](https://github.com/CabrilloRoboticsClub/tiny_hawk/blob/main/hello/hello.py)
+20. Congratulations, you have created your first node in ROS2
+21. The full complete solution is available [here](https://github.com/CabrilloRoboticsClub/tiny_hawk/blob/main/hello/hello.py)
 
 
 <br>
@@ -272,7 +292,7 @@ Navigate to the `src` directory with `cd ~/ros2_ws/src/`
     Make sure the list items are comma separated 
 
 #### Publisher:
-1. Add a timer to the publisher. The timer specifies how frequently the nodes will publish messages
+1. Add a timer to the publisher's constructor. The timer specifies how frequently the nodes will publish messages
     1. Initialize the timer 
         ```py
         self.create_timer(0.5, self.pub_callback) 
@@ -284,7 +304,7 @@ Navigate to the `src` directory with `cd ~/ros2_ws/src/`
           self.get_logger().info(f"Message #{self._counter}: My name is ___")
           self._counter += 1
         ```
-2. Initialize the publisher by adding this line to the constructor
+2. Initialize the publisher by adding this line to the constructor (above the two lines you just added)
     ```py
     self._publisher = self.create_publisher(String, "demo_topic", 10)
     ```
