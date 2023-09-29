@@ -32,9 +32,9 @@
 
    Notable files and directories:
      - **pkg.xml**
-        - The name of the package
-        - The license 
-        - Dependencies. Any time your package depends on another package, you add it to the dependencies 
+        - Defines the name of the package
+        - Determines the license for the code 
+        - Handles dependencies. Any time your package depends on another package, you add it to the dependencies 
         - Publication stuff 
       - **setup.py**
         - Similar to pkg.xml 
@@ -43,7 +43,7 @@
         - Do not touch
       - **pkg_name**
         - Directory with the same name as your package (`hello`)
-        - This is where you create nodes 
+        - This is where you will write code and create nodes
         - There will be an `__init__.py` file by default 
 
 <br>
