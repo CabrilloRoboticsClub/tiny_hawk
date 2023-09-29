@@ -46,7 +46,7 @@
 # What are Git and GitHub
 ## Recording 
 *Click on the image to open the [video](https://youtu.be/hzFErKeImTs)*
-[![Watch the video](https://i.imgur.com/ytJSMpi.png)](https://youtu.be/hzFErKeImTs "Tiny Hawk: What are Git and GitHub")
+[![Watch the video](https://i.imgur.com/ytJSMpi.png)](https://youtu.be/Opt-DSF9d_Y?si=3k5_N0q704sF5LPl "Tiny Hawk: What are Git and GitHub")
 
 <br>
 
