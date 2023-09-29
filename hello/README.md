@@ -73,7 +73,6 @@
 8. The first thing to do in the `main()` function is to initialize ROS2 communications and then terminate them
     ```py 
     rclpy.init(args=args) # Initialize communications 
-    # Here is the node itself, it is not the file or program itself
     rclpy.shutdown() # Shutdown communications and destroy node
     ```
 9. Nodes are exist in your program as objects. Create a class that inherits from rclpy's Node, this allows us to have access to all the functionalities of ROS2. More info on Objects/Classes: Objects are data types that we (the developers) define, and they contain a combination of data as well as functions/methods. Objects are instances of a Class, which define the types of variables an object can have and how its functions work.
@@ -86,7 +85,7 @@
      ```py
      node = Hello()
      ```
-11. Go back to the constructor and use the logger to output "Hello world". This is basically a print statement
+11. Go back to the constructor function for the Hello Node and use the `get_logger()` function to output "Hello world" to the console, similar to `print("Hello world")`,`cout << "Hello World";`, and `System.out.println("Hello world");`. Note on constructors: since we define Classes ourselves, we can also create constructor methods to define how instances of the class should be created (e.g. setting member variables).
     ```py
     self.get_logger().info("Hello world")
     ```
