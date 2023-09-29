@@ -76,7 +76,7 @@
     # Here is the node itself, it is not the file or program itself
     rclpy.shutdown() # Shutdown communications and destroy node
     ```
-9. Nodes are created using Object Orientated Programming (OOP). Create a class that inherits from rclpy's Node, this allows us to have access to all the functionalities of ROS2
+9. Nodes are exist in your program as objects. Create a class that inherits from rclpy's Node, this allows us to have access to all the functionalities of ROS2. More info on Objects/Classes: Objects are data types that we (the developers) define, and they contain a combination of data as well as functions/methods. Objects are instances of a Class, which define the types of variables an object can have and how its functions work.
     ```py
     class Hello(Node):
       def __init__(self):
