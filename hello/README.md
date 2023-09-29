@@ -73,7 +73,6 @@
 8. The first thing to do in the `main()` function is to initialize ROS2 communications and then terminate them
     ```py 
     rclpy.init(args=args) # Initialize communications 
-    # Here is the node itself, it is not the file or program itself
     rclpy.shutdown() # Shutdown communications and destroy node
     ```
 9. Nodes are created using Object Orientated Programming (OOP). Create a class that inherits from rclpy's Node, this allows us to have access to all the functionalities of ROS2
