@@ -329,7 +329,6 @@ Navigate to the `src` directory with `cd ~/ros2_ws/src/`
 #### Run the program
 1. Return to the workspace in your terminal and run the following to avoid having to re-build every time you wish to run the nodes 
     ```sh
-    cd ../../..
     colcon build --symlink-install
     source ~/.bashrc
     ```
